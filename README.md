@@ -26,6 +26,8 @@
 
 ## 📌 Overview
 
+> 🚀 **Live Demo:** [hirevision.streamlit.app](https://hirevision.streamlit.app)
+
 **HireVision** is a production-grade AI system that automates CV analysis for HR professionals and recruiters. Submit a CV (PDF or image), define your job requirements, and receive a structured AI-generated candidate assessment — instantly.
 
 The project ships with two independent deployments:
@@ -313,8 +315,10 @@ Try the Streamlit frontend live — no setup required:
 
 ## 👤 Author
 
-**Mrwan Awad**
+**Mrwan Ibrahim**
 Senior AI & Backend Engineer
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/mrwan-ibrahim)
 
 ---
 
