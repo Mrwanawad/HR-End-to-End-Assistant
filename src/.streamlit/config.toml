@@ -1,0 +1,15 @@
+[theme]
+base                  = "light"
+primaryColor          = "#1B2A4A"
+backgroundColor       = "#D6CFC8"
+secondaryBackgroundColor = "#D6CFC8"
+textColor             = "#1B2A4A"
+font                  = "times"
+baseFontSize          = 18
+
+[server]
+headless              = true   # put back to true
+
+[client]
+showSidebarNavigation = false
+toolbarMode           = "auto"  # this is what fixed the Deploy button

@@ -1,0 +1,14 @@
+ipykernel==7.2.0
+ipywidgets==8.1.8
+openai==2.36.0
+mistralai==2.0.1
+ollama==0.6.2
+groq==1.2.0
+fastapi==0.136.1
+pydantic==2.13.4
+pydantic-settings==2.14.1
+streamlit==1.57.0
+pymupdf4llm==1.27.2.3
+python-dotenv==1.2.2
+colorama==0.4.6
+json-repair==0.59.4
