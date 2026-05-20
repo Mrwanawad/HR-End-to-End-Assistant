@@ -1,7 +1,9 @@
 from pathlib import Path
 from typing import List
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from colorama import Fore
+from colorama import Fore, Back
+from typing import List
+from pathlib import Path
 
 ENV_PATH = Path(__file__).resolve().parent.parent.parent / ".env"
 
@@ -23,7 +25,7 @@ class Settings(BaseSettings):
     GROQ_MODEL:   str
     GROQ_API_KEY: str
 
-    OLLAMA_MODEL: str
+    OLLAMA_MODEL:    str
 
     model_config = SettingsConfigDict(
         env_file=ENV_PATH if ENV_PATH.exists() else None,
