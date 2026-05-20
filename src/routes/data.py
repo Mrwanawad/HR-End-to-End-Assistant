@@ -37,8 +37,7 @@ async def analyze_cv( user_entries: str, file: UploadFile, app_settings= Depends
     user_entries = UserEntries( **user_entries )    
     
     if file_type == 'doc':
-        doc_text = await PDFController().process_doc( doc= file )
-        messages = await build_pdf_messages_schema( file= doc_text,
+        messages = await build_pdf_messages_schema( file= file,
                                   user_entries= user_entries,)
         response = await llm_client.analyze_cv(
             messages = messages
@@ -49,8 +48,7 @@ async def analyze_cv( user_entries: str, file: UploadFile, app_settings= Depends
         }
 
     elif file_type == 'img':
-        processed_cv = await IMGController().load_img_into_base64_4_llm( img= file )
-        messages = await build_img_messages_schema( img= processed_cv, user_entries= user_entries )
+        messages = await build_img_messages_schema( img= file, user_entries= user_entries )
         response = await llm_client.analyze_cv( messages= messages )
         return {
             'Analyzed CV': response

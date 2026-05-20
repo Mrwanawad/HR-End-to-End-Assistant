@@ -2,9 +2,9 @@ from PIL import Image
 from schemas import SYSTEM_PROMPT
 from models import UserEntries
 from controllers.data.PDFController import PDFController
+from config.config import get_settings
 
-
-async def build_pdf_messages_schema( file, user_entries: UserEntries, provider: str ):
+async def build_pdf_messages_schema( file, user_entries: UserEntries, provider: str = get_settings().LLM_PROVIDER ):
 
     pdf_text = await PDFController().process_doc( file )
     

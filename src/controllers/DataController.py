@@ -5,21 +5,23 @@ from streamlit.runtime.uploaded_file_manager import UploadedFile
 from fastapi import UploadFile
 
 
-
 class DataController:
     
     def __init__(self):
         pass
     
     def get_file_size_in_MB( self, doc: UploadedFile | UploadFile ):
-        if hasattr( doc, 'size' ):
-            size_in_mb = doc.size / ( 1024 * 1024 )
-            
-        else:
+        
+        if isinstance( doc, UploadFile ):
             doc.file.seek( 0, 2 )
             size_in_bytes = doc.file.tell() 
             doc.file.seek(0)             
             size_in_mb = size_in_bytes / (1024 * 1024)
+        
+        else:
+            size_in_mb = doc.size / ( 1024 * 1024 )
+            
+
             
         return size_in_mb        
     
