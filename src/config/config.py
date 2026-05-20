@@ -1,8 +1,10 @@
 import os
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from colorama import Fore, Back
+from pydantic import field_validator
+from colorama import Fore
 from typing import List
 from pathlib import Path
+import json
 
 ENV_PATH = Path(__file__).resolve().parent.parent.parent / ".env"
 
@@ -24,18 +26,20 @@ class Settings(BaseSettings):
     GROQ_MODEL: str
     GROQ_API_KEY: str
 
-    OLLAMA_MODEL:    str
+    OLLAMA_MODEL: str
+
+    @field_validator("IMAGES_ALLOWED_TYPES", "FILE_ALLOWED_TYPES", mode="before")
+    @classmethod
+    def parse_list(cls, v):
+        if isinstance(v, str):
+            return json.loads(v)
+        return v
 
     model_config = SettingsConfigDict(
-    env_file=ENV_PATH if ENV_PATH.exists() else None,    # For Streamlit Cloud Deployment
-    env_file_encoding="utf-8"
+        env_file=ENV_PATH if ENV_PATH.exists() else None,
+        env_file_encoding="utf-8"
     )
 
 
 def get_settings():
     return Settings() # type: ignore
-
-
-if __name__ == "__main__":
-    print(  Fore.RED + f'Mistral API_KEY: { get_settings().MISTRAL_API_KEY } ' + Fore.RESET )
-    
