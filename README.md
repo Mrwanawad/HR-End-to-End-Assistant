@@ -187,7 +187,7 @@ HR-End-to-End-Assistant/
 Clone the repository:
 
 ```bash
-git clone https://github.com/Mrwanawad/HR-End-to-End-Assistant.git
+git clone https://github.com/Mrwanawad/HireVision---Candidate-Selection-End-to-End-Assistant.git
 cd HR-End-to-End-Assistant
 ```
 
